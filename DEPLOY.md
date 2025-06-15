@@ -24,7 +24,7 @@ git push origin main
 
 **Build & Deploy:**
 - **Runtime**: `Python 3`
-- **Build Command**: `pip install -r requirements.txt`
+- **Build Command**: `pip install --upgrade pip && pip install -r requirements.txt`
 - **Start Command**: `uvicorn main:app --host 0.0.0.0 --port $PORT`
 
 ### 3. Set Environment Variables
@@ -40,8 +40,8 @@ Click **"Create Web Service"** and wait for deployment to complete.
 ## 📋 Deployment Files Created
 
 ✅ **render.yaml** - Render service configuration
-✅ **runtime.txt** - Python version specification  
-✅ **requirements.txt** - Python dependencies
+✅ **runtime.txt** - Python 3.12.0 specification  
+✅ **requirements.txt** - Updated Python dependencies (compatible with Python 3.12+)
 ✅ **Health check endpoints** - `/` and `/health`
 ✅ **CORS enabled** - For frontend integration
 ✅ **Environment variables** - OpenAI API key support
@@ -69,10 +69,19 @@ https://vehicle-ai-backend.onrender.com
 4. Check Python version compatibility
 
 **Common issues:**
-- **OpenCV errors**: Should work with `opencv-python==4.8.1.78`
+- **Package compatibility**: Updated to use Python 3.12 compatible versions
+- **OpenCV errors**: Using `opencv-python-headless==4.10.0.84` for server deployment
 - **Port binding**: Uses `$PORT` environment variable automatically
 - **File permissions**: Render handles this automatically
-- **Dependencies**: All specified in requirements.txt
+- **Dependencies**: All specified in requirements.txt with compatible versions
+
+**Updated Package Versions (Python 3.12+ compatible):**
+- FastAPI: 0.115.0
+- Uvicorn: 0.32.0
+- OpenCV: 4.10.0.84 (headless)
+- NumPy: 2.1.0
+- Pillow: 11.0.0
+- Pydantic: 2.10.0
 
 ## 🔄 Auto-Deploy
 
